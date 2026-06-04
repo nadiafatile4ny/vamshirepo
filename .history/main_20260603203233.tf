@@ -23,7 +23,6 @@ module "ec2_stage" {
   tags          = local.common_tags
   iam_role_name = module.iam.ec2_iam_role_name
   key_pair_name = "testingkey"
-}
 
 # module code to create the ec2 instance with user data
 module "ec2_prod" {
@@ -31,5 +30,5 @@ module "ec2_prod" {
   name          = "prod"
   tags          = local.common_tags
   iam_role_name = module.iam.ec2_iam_role_name
-  key_pair_name = "testingkey"
+  key_pair_name = "Firstkeypair"
 }
