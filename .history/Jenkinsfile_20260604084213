@@ -10,7 +10,7 @@ pipeline {
         stage('Git checkout') {
             steps {
                 echo 'Cloning project codebase...'
-                git branch: 'main', url: 'https://github.com/nadiafatile4ny/vamshirepo.git'
+                git branch: 'main', url: ''
                 sh 'ls'
             }
         }
