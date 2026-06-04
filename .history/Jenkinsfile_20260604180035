@@ -52,15 +52,15 @@ pipeline {
         
        stage('Checkov scan') {
     steps {
-       sh '''
-python3 -m venv venv
+        sh '''
+       python3 -m venv venv
 . venv/bin/activate
 pip install checkov
 
 checkov -d . \
   --skip-check CKV_AWS* \
   --skip-path venv
-'''
+        '''
     }
 }               
         
