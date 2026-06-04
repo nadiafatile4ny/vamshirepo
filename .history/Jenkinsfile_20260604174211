@@ -50,17 +50,19 @@ pipeline {
         } 
                 
         
-       stage('Checkov scan') {
-    steps {
-        sh '''
-        python3 -m venv venv
-        . venv/bin/activate
-        pip install --upgrade pip
-        pip install checkov
-        checkov -d . --skip-check CKV_AWS*
-        '''
-    }
-}               
+        stage('Checkov scan') {
+            steps {
+                
+               sudo pip3 install --upgrade pip
+                s sh """                
+                #udo pip3 install checkov
+                #checkov -d .
+                #checkov -d . --skip-check CKV_AWS_23,CKV_AWS_24,CKV_AWS_126,CKV_AWS_135,CKV_AWS_8,CKV_AWS_23,CKV_AWS_24
+                checkov -d . --skip-check CKV_AWS*
+                """
+               
+            }
+        }               
         
         stage('Manual approval') {
             steps {
